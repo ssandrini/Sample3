@@ -1,0 +1,99 @@
+{
+  "nodes": [
+    {
+      "name": "geo1",
+      "type": "COMP",
+      "subtype": "geo",
+      "properties": {
+        "tileX": "450",
+        "tileY": "170",
+        "sizeX": "159",
+        "sizeY": "130"
+      }
+    },
+    {
+      "name": "noise1",
+      "type": "CHOP",
+      "subtype": "noise",
+      "properties": {
+        "tileX": "50",
+        "tileY": "30",
+        "sizeX": "130",
+        "sizeY": "90",
+        "type": "hermite",
+        "rough": "0.25",
+        "ty": "0",
+        "tz": "0",
+        "constraint": "offset",
+        "constrmean": "0.5",
+        "end": "2"
+      }
+    },
+    {
+      "name": "chopto1",
+      "type": "TOP",
+      "subtype": "chopto",
+      "properties": {
+        "tileX": "50",
+        "tileY": "150",
+        "sizeX": "130",
+        "sizeY": "48",
+        "chop": "noise1",
+        "dataformat": "legacy"
+      }
+    },
+    {
+      "name": "displace1",
+      "type": "TOP",
+      "subtype": "displace",
+      "properties": {
+        "tileX": "260",
+        "tileY": "200",
+        "sizeX": "130",
+        "sizeY": "72",
+        "horzsource": "none",
+        "vertsource": "red",
+        "displaceweightx": "0",
+        "displaceweighty": "0.1",
+        "extend": "mirror"
+      }
+    },
+    {
+      "name": "moviefilein1",
+      "type": "TOP",
+      "subtype": "moviefilein",
+      "properties": {
+        "tileX": "50",
+        "tileY": "240",
+        "sizeX": "130",
+        "sizeY": "72"
+      }
+    }
+  ],
+  "inputs": {
+    "geo1": [
+      {
+        "destination": "displace1",
+        "parm": false
+      }
+    ],
+    "noise1": [],
+    "chopto1": [
+      {
+        "destination": "noise1",
+        "parm": true
+      }
+    ],
+    "displace1": [
+      {
+        "destination": "moviefilein1",
+        "parm": false
+      },
+      {
+        "destination": "chopto1",
+        "parm": false
+      }
+    ],
+    "moviefilein1": []
+  }
+}
