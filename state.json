@@ -47,8 +47,8 @@
       "type": "TOP",
       "subtype": "displace",
       "properties": {
-        "tileX": "260",
-        "tileY": "200",
+        "tileX": "300",
+        "tileY": "250",
         "sizeX": "130",
         "sizeY": "72",
         "horzsource": "none",
@@ -64,9 +64,10 @@
       "subtype": "moviefilein",
       "properties": {
         "tileX": "50",
-        "tileY": "240",
+        "tileY": "300",
         "sizeX": "130",
-        "sizeY": "72"
+        "sizeY": "72",
+        "speed": "0.8"
       }
     }
   ],
